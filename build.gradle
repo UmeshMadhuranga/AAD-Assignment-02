@@ -27,6 +27,12 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.0'
+
     // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
     compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
 
@@ -56,6 +62,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.modelmapper/modelmapper
     implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.1.1'
+
+
 
 }
 

@@ -24,13 +24,12 @@ public class HibernateConfig {
 
     public final Environment env;
 
-    public HibernateConfig(Environment environment) {
-        this.env = environment;
+    public HibernateConfig(Environment env) {
+        this.env = env;
     }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource source) {
-
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(source);
         emf.setPackagesToScan("lk/ijse/gdse/springmvc_with_gradle/entity");
@@ -39,28 +38,23 @@ public class HibernateConfig {
         emf.setJpaVendorAdapter(adapter);
         emf.setJpaPropertyMap(hibernateConfigs());
         return emf;
-
     }
 
     @Bean
     public DataSource dataSource() {
-
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
         ds.setUrl(env.getProperty("spring.datasource.url"));
         ds.setUsername(env.getProperty("spring.datasource.username"));
         ds.setPassword(env.getProperty("spring.datasource.password"));
         return ds;
-
     }
 
     @Bean
     public PlatformTransactionManager transactionManager(LocalContainerEntityManagerFactoryBean emf) {
-
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(emf.getObject());
         return transactionManager;
-
     }
 
     private Map<String, String> hibernateConfigs() {
@@ -74,5 +68,7 @@ public class HibernateConfig {
         return hbConfigs;
 
     }
+
+
 
 }
