@@ -28,7 +28,7 @@ public class HibernateConfig {
         this.env = env;
     }
 
-    @Bean
+    @Bean       //Factory create
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource source) {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(source);
@@ -68,7 +68,5 @@ public class HibernateConfig {
         return hbConfigs;
 
     }
-
-
 
 }
